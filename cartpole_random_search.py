@@ -43,6 +43,7 @@ def random_search(env):
 
         if avg_length > best:
             params = new_params
+            best = avg_length
     return episode_lengths, params
 
 
