@@ -13,7 +13,7 @@ def play_one_episode(env, params):
     t = 0
 
     while not done and t < 10000:
-        env.render()
+        # env.render()
         t += 1
         action = get_action(observation, params)
         observation, reward, done, info = env.step(action)
