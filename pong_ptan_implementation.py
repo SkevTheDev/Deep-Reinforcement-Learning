@@ -7,7 +7,7 @@ import torch.optim as optim
 
 from tensorboardX import SummaryWriter
 
-import pong_rl_model, common_utils
+import atari_deep_q_neural_network, common_utils
 
 if __name__ == "__main__":
     params = common_utils.HYPERPARAMS['pong']
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     env = ptan.common.wrappers.wrap_dqn(env)
 
     writer = SummaryWriter(comment="-" + params['run_name'] + "-basic")
-    net = pong_rl_model.DQN(env.observation_space.shape, env.action_space.n).to(device)
+    net = atari_deep_q_neural_network.DQN(env.observation_space.shape, env.action_space.n).to(device)
 
     tgt_net = ptan.agent.TargetNet(net)
     selector = ptan.actions.EpsilonGreedyActionSelector(epsilon=params['epsilon_start'])
